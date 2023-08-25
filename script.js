@@ -21,3 +21,9 @@ function addTask() {
         deleteButton.addEventListener('click', deleteTask);
     }
 }
+
+// Function to delete a task
+function deleteTask(event) {
+    const taskItem = event.target.parentNode;
+    taskList.removeChild(taskItem);
+}
