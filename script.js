@@ -27,3 +27,6 @@ function deleteTask(event) {
     const taskItem = event.target.parentNode;
     taskList.removeChild(taskItem);
 }
+
+// Attach event listener to the "Add Task" button
+addTaskButton.addEventListener('click', addTask);
