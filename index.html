@@ -25,6 +25,7 @@
         height: 100vh;
         background: #939697;
       }
+    
       .container {
         width: 40%;
         min-width: 450px;
@@ -34,6 +35,14 @@
         left: 50%;
         background: white;
         border-radius: 10px;
+      }
+
+      h1{
+        display: flex;
+        justify-content: center;
+        margin-top: 40px;
+        color: white;
+
       }
 
       #newtask {
@@ -114,6 +123,7 @@
     </style>
   </head>
   <body>
+    <h1>TO DO LIST</h1>
     <div class="container">
       <div id="newtask">
         <input type="text" placeholder="Task to be done.." />
@@ -122,6 +132,7 @@
 
       <div id="tasks"></div>
     </div>
+
     <!--Script-->
     <script type="text/javascript">
       document.querySelector("#push").onclick = function () {
