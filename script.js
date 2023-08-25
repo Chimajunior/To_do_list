@@ -30,3 +30,10 @@ function deleteTask(event) {
 
 // Attach event listener to the "Add Task" button
 addTaskButton.addEventListener('click', addTask);
+
+// Attach event listener to the Enter key in the input field
+taskInput.addEventListener('keydown', function(event) {
+    if (event.key === 'Enter') {
+        addTask();
+    }
+});
