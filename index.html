@@ -126,7 +126,7 @@
     <h1>TO DO LIST</h1>
     <div class="container">
       <div id="newtask">
-        <input type="text" placeholder="Task to be done.." />
+        <input id="txt-id" type="text" placeholder="Task to be done.." />
         <button id="push">Add</button>
       </div>
 
@@ -136,6 +136,8 @@
     <!--Script-->
     <script type="text/javascript">
       document.querySelector("#push").onclick = function () {
+        var inputbox = document.getElementById("txt-id");
+
         if (document.querySelector("#newtask input").value.length == 0) {
           alert("Please Enter a Task");
         } else {
@@ -149,6 +151,7 @@
                 </button>
             </div>
         `;
+        
 
           var current_tasks = document.querySelectorAll(".delete");
           for (var i = 0; i < current_tasks.length; i++) {
@@ -157,7 +160,13 @@
             };
           }
         }
+
+
+        // Clear the input field after adding a task
+        inputbox.value = "";
       };
+
+     
     </script>
   </body>
 </html>
