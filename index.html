@@ -44,6 +44,7 @@
         justify-content: center;
         margin-top: 40px;
         color: white;
+        margin-bottom: 30px;
 
       }
 
@@ -92,6 +93,7 @@
         position: relative;
         max-height: 500px; 
         overflow-y: auto;
+
       }
       .task {
         background-color: #c5e1e6;
@@ -104,6 +106,8 @@
         justify-content: space-between;
         border: 1px solid #939697;
         cursor: pointer;
+        color: black;
+        transform: translateZ(0);
       }
       .task span {
         font-family: "Poppins", sans-serif;
@@ -147,6 +151,7 @@
         } else {
           document.querySelector("#tasks").innerHTML += `
             <div class="task">
+              <input type="checkbox" class="checkbox">
                 <span id="taskname">
                     ${document.querySelector("#newtask input").value}
                 </span>
