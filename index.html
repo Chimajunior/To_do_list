@@ -25,7 +25,7 @@
         height: 100vh;
         background: #939697;
       }
-    
+
       .container {
         width: 40%;
         min-width: 450px;
@@ -36,16 +36,15 @@
         background: white;
         border-radius: 10px;
         overflow-y: auto;
-        max-height: 120vh; 
+        max-height: 120vh;
       }
 
-      h1{
+      h1 {
         display: flex;
         justify-content: center;
         margin-top: 40px;
         color: white;
         margin-bottom: 30px;
-
       }
 
       #newtask {
@@ -91,9 +90,8 @@
         border-radius: 10px;
         width: 100%;
         position: relative;
-        max-height: 500px; 
+        max-height: 500px;
         overflow-y: auto;
-
       }
       .task {
         background-color: #c5e1e6;
@@ -127,6 +125,8 @@
 
       .completed {
         text-decoration: line-through;
+        color: #6c757d;
+        background-color: ghostwhite;
       }
     </style>
   </head>
@@ -146,13 +146,17 @@
       document.querySelector("#push").onclick = function () {
         var inputbox = document.getElementById("txt-id");
 
+        /* If the user enters a task, then add the task to the list. Otherwise, display an error message. */
         if (document.querySelector("#newtask input").value.length == 0) {
           alert("Please Enter a Task");
         } else {
-          document.querySelector("#tasks").innerHTML += `
+          document.querySelector("#tasks").innerHTML +=
+          // Create a new task element
+           `
             <div class="task">
               <input type="checkbox" class="checkbox">
                 <span id="taskname">
+                    <!-- Get the task from the input field -->
                     ${document.querySelector("#newtask input").value}
                 </span>
                 <button class="delete">
@@ -160,22 +164,40 @@
                 </button>
             </div>
         `;
-        
 
+        /* This code removes the task when the delete button is clicked. */
           var current_tasks = document.querySelectorAll(".delete");
           for (var i = 0; i < current_tasks.length; i++) {
             current_tasks[i].onclick = function () {
               this.parentNode.remove();
             };
           }
-        }
 
+          /* This code adds the completed class to the task when the checkbox is checked. */
+
+          // Get the `.task` element
+          var task = document.querySelector(".task");
+
+          // Get all the `.task` elements
+          var tasks = document.querySelectorAll(".task");
+
+          // Loop through all the tasks
+          for (var i = 0; i < tasks.length; i++) {
+            // Add the `completed` class to the element when it is checked
+            tasks[i]
+              .querySelector(".checkbox")
+              .addEventListener("change", function () {
+                this.parentNode.classList.toggle("completed");
+                this.parentNode
+                  .querySelector(".taskname")
+                  .classList.toggle("completed");
+              });
+          }
+        }
 
         // Clear the input field after adding a task
         inputbox.value = "";
       };
-
-     
     </script>
   </body>
 </html>
